@@ -1,0 +1,25 @@
+1)  https://github.com/zinotrust/eshop-ecommerce/tree/0.-Starter-template
+    https://github.com/zinotrust/eshop-styles
+    https://github.com/zinotrust/eshop-ecommerce/tree/master/src/assets
+
+2)  Modern Cards
+    https://www.raviwebcoding.com/2020/04/product-card-ui-design-pure-css.html
+    https://www.youtube.com/watch?v=fqzP_Cr2PKc
+
+    https://themelower.com/
+
+    https://www.pinterest.com/pin/9499849193594810/
+
+    https://www.google.com/imgres?imgurl=https%3A%2F%2Fcodes4education.com%2Fwp-content%2Fuploads%2F2020%2F11%2FCSS-Creative-Product-Card-UI-Design-E-commerce-Card-Using-Html5-CSS3-Part-3-Code4Education-min.jpg&imgrefurl=https%3A%2F%2Fcodes4education.com%2Fcreative-product-card-design-e-commerce-card-using-html5-css%2F&tbnid=MRqGGEfRPZ_MTM&vet=12ahUKEwiowbiry6z7AhUyMLkGHSqaCcQQMygpegUIARCjAg..i&docid=_txEJONvuq_iOM&w=1920&h=1080&q=ecommerce%20cards%20image&ved=2ahUKEwiowbiry6z7AhUyMLkGHSqaCcQQMygpegUIARCjAg#imgrc=MRqGGEfRPZ_MTM&imgdii=FWNyBWpK1DnYFM
+    
+
+3)  ecommerce react full stack
+    https://www.youtube.com/watch?v=EBCdyQ_HFMo
+    https://www.youtube.com/watch?v=F3mU3HghpYk
+
+4)  
+
+5)  
+
+6)  
+
