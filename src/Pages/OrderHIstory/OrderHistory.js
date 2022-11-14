@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./OrderHistory.modules.scss"
+import styles from "./OrderHistory.module.scss"
 
 function OrderHistory() {
   return (
