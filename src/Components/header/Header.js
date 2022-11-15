@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import styles from "./Header.module.scss"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import { FaShoppingCart, FaTimes } from "react-icons/fa"
 import { AiOutlineAlignRight } from "react-icons/ai"
+import { getAuth, signOut } from "firebase/auth";
+import { auth } from '../../Firebase/config'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const logo = (
   <div className={styles.logo}>
@@ -20,10 +25,12 @@ const carts = (
   </span>
 )
 
+
 const activeLink = ({ isActive }) => (isActive? `${styles.active}` : "")
 
 const Header = () => {
-
+  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   const toggleMenu = () => {
     setShowMenu(!showMenu)
@@ -31,6 +38,16 @@ const Header = () => {
 
   const hideMenu = () => {
     setShowMenu(false)
+  }
+
+  const logoutUser = (e) => {
+    signOut(auth).then(() => {
+      setIsLoading(false)
+      toast.success("Log out succesfully.");
+      navigate("/reset-password")
+    }).catch((error) => {
+      toast.error(error.message);
+    });
   }
 
   return (
@@ -51,6 +68,7 @@ const Header = () => {
                 <NavLink to="/login" className={activeLink}>Login</NavLink>
                 <NavLink to="/register" className={activeLink}>Register</NavLink>
                 <NavLink to="/order-history" className={activeLink}>My Orders </NavLink>
+                <NavLink to="/" className={activeLink} onClick={logoutUser}>Log Out </NavLink>
               </span>
               {carts}
             </div>
