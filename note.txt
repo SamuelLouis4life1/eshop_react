@@ -1,6 +1,7 @@
 1)  https://github.com/zinotrust/eshop-ecommerce/tree/0.-Starter-template
     https://github.com/zinotrust/eshop-styles
     https://github.com/zinotrust/eshop-ecommerce/tree/master/src/assets
+    
 
 2)  Modern Cards
     https://www.raviwebcoding.com/2020/04/product-card-ui-design-pure-css.html
@@ -17,9 +18,16 @@
     https://www.youtube.com/watch?v=EBCdyQ_HFMo
     https://www.youtube.com/watch?v=F3mU3HghpYk
 
-4)  
+4)  rafce react arrow function export component
 
-5)  
+5)  https://acegif.com/gifs-loading/
 
-6)  
+6)  https://console.firebase.google.com/project/eshop-76adc/storage
+
+7)  
+
+8)  
+
+9)  
+
 
