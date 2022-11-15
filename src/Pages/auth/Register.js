@@ -26,13 +26,11 @@ export const Register = () => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
                 console.log(user)
                 setIsLoading(false)
                 toast.success("Registration succesfully completed...");
                 navigate("/login")
-                // ...
             })
             .catch((error) => {
                 toast.error(error.message);
