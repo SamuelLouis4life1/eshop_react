@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from "./Header.module.scss"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { FaShoppingCart, FaTimes } from "react-icons/fa"
 import { AiOutlineAlignRight } from "react-icons/ai"
 
@@ -19,6 +19,8 @@ const carts = (
     <p>0</p>
   </span>
 )
+
+const activeLink = ({ isActive }) => (isActive? `${styles.active}` : "")
 
 const Header = () => {
 
@@ -41,14 +43,14 @@ const Header = () => {
 
             <ul onClick={hideMenu}>
               <li className={styles["logo-mobile"]}>{logo} <FaTimes size={22} color="#fff" onClick={hideMenu}/></li>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/contact">Contact Us</Link></li>
+              <li><NavLink to="/" className={activeLink}>Home</NavLink></li>
+              <li><NavLink to="/contact" className={activeLink}>Contact Us</NavLink></li>
             </ul>
             <div className={styles["header-right"]} onClick={hideMenu}>
               <span className={styles.links}>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-                <Link to="/order-history">My Orders </Link>
+                <NavLink to="/login" className={activeLink}>Login</NavLink>
+                <NavLink to="/register" className={activeLink}>Register</NavLink>
+                <NavLink to="/order-history" className={activeLink}>My Orders </NavLink>
               </span>
               {carts}
             </div>
