@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./Header.module.scss"
 import { Link, NavLink, useNavigate } from "react-router-dom"
-import { FaShoppingCart, FaTimes } from "react-icons/fa"
+import { FaShoppingCart, FaTimes, FaUserCircle } from "react-icons/fa"
 import { AiOutlineAlignRight } from "react-icons/ai"
-import { getAuth, signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../Firebase/config'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux'
+import { SET_ACTIVE_USER, REMOVE_ACTIVE_USER } from '../../redux/slice/authSlice'
 
 
 const logo = (
@@ -32,6 +34,8 @@ const Header = () => {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
+  const [displayUserName, setDisplayUserName] = useState("")
+
   const toggleMenu = () => {
     setShowMenu(!showMenu)
   }
@@ -50,6 +54,34 @@ const Header = () => {
     });
   }
 
+  // Monitor currently sign in user
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        if(user.displayName == null){
+          // const u1 = user.email.slice(0, -10); // to remove only the @gmail.com
+          const u1 = user.email.substring(0, user.email.indexOf("@"));
+          const uName = u1.charAt(0).toUpperCase + u1.slice(1);
+          setDisplayUserName(uName)
+        }else{
+          setDisplayUserName(user.displayName);
+        }        
+        dispatch(SET_ACTIVE_USER({
+          email: user.email,
+          userName: user.displayName? user.displayName : displayUserName,
+          userID: user.uid,
+        }))
+
+      } else {
+        setDisplayUserName("");
+        dispatch(REMOVE_ACTIVE_USER());
+      }
+    });
+  }, [dispatch, displayUserName])
+
   return (
     <header>
       <div className={styles.header}>
@@ -66,6 +98,7 @@ const Header = () => {
             <div className={styles["header-right"]} onClick={hideMenu}>
               <span className={styles.links}>
                 <NavLink to="/login" className={activeLink}>Login</NavLink>
+                <a  href="#"><FaUserCircle size={18}/> Hi, {displayUserName}</a>
                 <NavLink to="/register" className={activeLink}>Register</NavLink>
                 <NavLink to="/order-history" className={activeLink}>My Orders </NavLink>
                 <NavLink to="/" className={activeLink} onClick={logoutUser}>Log Out </NavLink>

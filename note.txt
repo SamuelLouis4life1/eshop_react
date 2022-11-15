@@ -19,6 +19,7 @@
     https://www.youtube.com/watch?v=F3mU3HghpYk
 
 4)  rafce react arrow function export component
+    rxslice redux slice 
 
 5)  https://acegif.com/gifs-loading/
 

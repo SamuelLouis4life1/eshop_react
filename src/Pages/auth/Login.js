@@ -6,7 +6,7 @@ import { FaGoogle } from 'react-icons/fa'
 import Card from '../../Components/card/Card'
 import { ToastContainer, toast } from 'react-toastify';
 import { auth } from '../../Firebase/config'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import Loader from "../../Components/loader/Loader"
 import {signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
