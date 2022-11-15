@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { auth } from '../../Firebase/config'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Loader from "../../Components/loader/Loader"
+import {signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -36,6 +37,22 @@ const Login = () => {
             });
     }
 
+    //login with Google 
+    const provider = new GoogleAuthProvider();
+    const signInWithGoogle = (e) => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                setIsLoading(false)
+                toast.success("Login succesful...");
+                navigate("/")
+            }).catch((error) => {
+                toast.error(error.message);
+                setIsLoading(false)
+            });
+    }
+
     return (
         <>
             <ToastContainer />
@@ -57,7 +74,7 @@ const Login = () => {
                             </div>
                             <p>-- or --</p>
                         </form>
-                        <button type="submit" className="--btn --btn-primary --btn-block"><FaGoogle color='#fff' />&nbsp; Login With Google</button>
+                        <button type="submit" className="--btn --btn-primary --btn-block" onClick={signInWithGoogle}><FaGoogle color='#fff' />&nbsp; Login With Google</button>
                         <p>Don't have an account? <Link to="/register">Register</Link></p>
                     </div>
                 </Card>
