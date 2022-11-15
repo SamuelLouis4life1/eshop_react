@@ -25,7 +25,7 @@ const Login = () => {
                         <p>-- or --</p>
                     </form>
                     <button className="--btn --btn-primary --btn-block"><FaGoogle color='#fff' />Login With Google</button>
-                    <p>Don't have an account? <Link to="/reset-password">Register</Link></p>                    
+                    <p>Don't have an account? <Link to="/register">Register</Link></p>                    
                 </div>
             </Card>
         </section>
