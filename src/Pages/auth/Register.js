@@ -24,7 +24,7 @@ export const Register = () => {
     </Card>
 
     <div className={styles.img}>
-        <img src={registerImg} alt="Login" width="500" />
+        <img src={registerImg} alt="Register" width="500" />
     </div>
 </section>
   )

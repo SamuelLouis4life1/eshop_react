@@ -3,8 +3,9 @@ import './App.css';
 import {BrowserRouter, Route, Routes } from "react-router-dom";
 // Components
 import { Header , Footer} from './Components';
+
 // Pages
-import { Home, Contact } from "./Pages"
+import { Home, Contact, Login, Register, ResetPassword } from "./Pages"
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
         
         <Route path="/" element={< Home /> } />
         <Route path="/contact" element={< Contact /> } />
-        {/* <Route path="/" element={< Home /> } >
-        <Route path="/" element={< Home /> } >
-        <Route path="/" element={< Home /> } > */}
+        <Route path="/login" element={< Login /> } />
+        <Route path="/register" element={< Register /> } />
+        <Route path="/reset-password" element={< ResetPassword /> } />
+        <Route path="/order-history" element={< ResetPassword /> } />
 
       </Routes>
     <Footer />
