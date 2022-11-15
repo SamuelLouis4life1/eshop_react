@@ -6,8 +6,6 @@ import { Header , Footer} from './Components';
 // Pages
 import { Home, Contact } from "./Pages"
 
-
-
 function App() {
   return (
     <>
