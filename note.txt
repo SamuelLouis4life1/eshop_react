@@ -1,6 +1,9 @@
 1)  https://github.com/zinotrust/eshop-ecommerce/tree/0.-Starter-template
     https://github.com/zinotrust/eshop-styles
     https://github.com/zinotrust/eshop-ecommerce/tree/master/src/assets
+    https://github.com/zinotrust/eshop-styles/tree/master/components
+    // project
+    https://github.com/zinotrust/eshop-ecommerce/tree/master/src
     
 
 2)  Modern Cards
@@ -19,14 +22,15 @@
     https://www.youtube.com/watch?v=F3mU3HghpYk
 
 4)  rafce react arrow function export component
+    rxslice redux slice 
 
 5)  https://acegif.com/gifs-loading/
 
 6)  https://console.firebase.google.com/project/eshop-76adc/storage
 
-7)  
+7)  imgbb or cloudinary to store images online
 
-8)  
+8)  Arquivos OrderHistory, ReviewProducts CheckoutFrom need to resolve selectUserID error
 
 9)  
 
