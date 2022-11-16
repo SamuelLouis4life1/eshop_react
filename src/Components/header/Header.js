@@ -3,14 +3,19 @@ import styles from "./Header.module.scss"
 import { Link, NavLink, useNavigate } from "react-router-dom"
 import { FaShoppingCart, FaTimes, FaUserCircle } from "react-icons/fa"
 import { AiOutlineAlignRight } from "react-icons/ai"
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../Firebase/config'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { SET_ACTIVE_USER, REMOVE_ACTIVE_USER } from '../../redux/slice/authSlice'
-import ShowOnLogin from "../../Components/hiddenLink/HiddenLink"
-import ShowOnLogOut from "../../Components/hiddenLink/HiddenLink"
+import ShowOnLogin, { ShowOnLogOut } from "../../Components/hiddenLink/HiddenLink"
+import { AdminOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
+import { CALCULATE_TOTAL_QUANTITY, selectCartTotalQuantity } from "../../redux/slice/cartSlice";
+
+
+
 
 
 const logo = (
@@ -21,15 +26,6 @@ const logo = (
   </div>
 )
 
-const carts = (
-  <span className={styles.cart}>
-    <Link to="/cart"> </Link> Cart
-    <FaShoppingCart size={20} />
-    <p>0</p>
-  </span>
-)
-
-
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "")
 
 const Header = () => {
@@ -37,6 +33,19 @@ const Header = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   const [displayUserName, setDisplayUserName] = useState("")
+
+  const [scrollPage, setScrollPage] = useState(false);
+  const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+
+  const cart = (
+    <span className={styles.cart}>
+      <Link to="/cart">
+        Cart
+        <FaShoppingCart size={20} />
+        <p>{cartTotalQuantity}</p>
+      </Link>
+    </span>
+  );
 
   const toggleMenu = () => {
     setShowMenu(!showMenu)
@@ -58,6 +67,15 @@ const Header = () => {
 
   // Monitor currently sign in user
   const dispatch = useDispatch();
+
+  const fixNavbar = () => {
+    if (window.scrollY > 50) {
+      setScrollPage(true);
+    } else {
+      setScrollPage(false);
+    }
+  };
+  window.addEventListener("scroll", fixNavbar);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -83,6 +101,10 @@ const Header = () => {
       }
     });
   }, [dispatch, displayUserName])
+
+  useEffect(() => {
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+  }, []);
 
   return (
     <header>
@@ -113,17 +135,16 @@ const Header = () => {
               </ShowOnLogin>
 
             </span>
-            {carts}
+            {cart}
           </div>
         </nav>
 
         <div className={styles["menu-icon"]}>
-          {carts}
+          {cart}
           <AiOutlineAlignRight size={28} onClick={toggleMenu} />
 
-
         </div>
-
+        
       </div>
     </header>
   )
