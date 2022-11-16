@@ -2,7 +2,7 @@ import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { db } from "../../../firebase/config";
+import { db } from "../../../Firebase/config";
 import Card from "../../card/Card";
 import Loader from "../../loader/Loader";
 import styles from "./ChangeOrderStatus.module.scss";
