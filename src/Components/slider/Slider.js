@@ -20,6 +20,24 @@ const Slider = () => {
     setCurrentSlide(0);
   }, []);
 
+  // Auto scroll Carrousel 
+  const autoScroll = true;
+  let slideInterval;
+  let intervalTime = 5000;
+
+  //   const auto = () => {
+  //     slideInterval = setInterval(nextSlide, intervalTime);
+  //   };
+
+  useEffect(() => {
+    if (autoScroll) {
+      const auto = () => {
+        slideInterval = setInterval(nextSlide, intervalTime);
+      };
+      auto();
+    }
+    return () => clearInterval(slideInterval);
+  }, [currentSlide, slideInterval, autoScroll]);
 
   return (
     <div className="slider">
