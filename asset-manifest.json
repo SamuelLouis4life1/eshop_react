@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/eshop_react/static/css/main.4a8de5f3.css",
-    "main.js": "/eshop_react/static/js/main.bc7b7677.js",
+    "main.css": "/eshop_react/static/css/main.471df458.css",
+    "main.js": "/eshop_react/static/js/main.e1e8af9e.js",
     "static/js/787.c6dd1964.chunk.js": "/eshop_react/static/js/787.c6dd1964.chunk.js",
     "static/media/gifloader1.gif": "/eshop_react/static/media/gifloader1.ece48b522b0fd1593554.gif",
     "static/media/eshop-login.png": "/eshop_react/static/media/eshop-login.6028f29e389590d63794.png",
+    "static/media/spinner.jpg": "/eshop_react/static/media/spinner.afa973eee05e0ebff95a.jpg",
     "static/media/eshop-register.png": "/eshop_react/static/media/eshop-register.9395df98841df88469c5.png",
     "static/media/reset-password1.png": "/eshop_react/static/media/reset-password1.527ecaaf71cd099b519b.png",
     "static/media/logo.svg": "/eshop_react/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/eshop_react/index.html",
-    "main.4a8de5f3.css.map": "/eshop_react/static/css/main.4a8de5f3.css.map",
-    "main.bc7b7677.js.map": "/eshop_react/static/js/main.bc7b7677.js.map",
+    "main.471df458.css.map": "/eshop_react/static/css/main.471df458.css.map",
+    "main.e1e8af9e.js.map": "/eshop_react/static/js/main.e1e8af9e.js.map",
     "787.c6dd1964.chunk.js.map": "/eshop_react/static/js/787.c6dd1964.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a8de5f3.css",
-    "static/js/main.bc7b7677.js"
+    "static/css/main.471df458.css",
+    "static/js/main.e1e8af9e.js"
   ]
 }
